@@ -14,43 +14,28 @@ public:
         for(int i=0 ; i<sz ; i++){
             if(flowerbed[i] == 0){
                 if(i==0 ){ 
-                    if(i==sz-1)
+                    if(i==sz-1) // this condition is for flowerbed of size 1
                         count++;
                     if( i+1 < sz and flowerbed[i+1] == 0) {
                         count++;
                         flowerbed[i] = 1;
-                    }
-                    
+                    }    
                 }
                 else if(i==sz-1 ){
                     if(i-1 >= 0 and flowerbed[i-1] == 0){
                         count++;
                         flowerbed[i] = 1;
-                    }
-                    
+                    }   
                 }
-
                 else if (flowerbed[i-1] == 0 and flowerbed[i+1] == 0){
                     count++;
                     flowerbed[i] = 1;
                 }
             }
+            if(count >= n)
+                return true;
             
         }
-        return count >= n;
-
-    //  for(int i=0;i<f.size();i++){
-    //      if(f[i]==0){
-    //          if(i==0)
-    //          {   if(i==f.size()-1){n--;}
-    //              if(i+1<f.size() and f[i+1]==0){f[i]=1; n--;}
-    //          }
-    //          else if(i==f.size()-1 ){
-    //              if(i-1>=0 and f[i-1]==0){f[i]=1; n--;}
-    //          }
-    //          else if(f[i-1]==0 and f[i+1]==0 ){f[i]=1; n--;}
-    //      }  
-    //  }
-    //  return n<=0;
+        return false;
     }
 };
