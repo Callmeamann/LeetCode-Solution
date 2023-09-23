@@ -13,12 +13,6 @@ class Solution {
 
     public void rotate(int[][] matrix) {
         int n = matrix.length;
-
-        // Method 1: First transpose the matrix and then reverse each individual row.
-        // Method 2: First reverse the matrix and then transpose.
-        
-        // Uncomment one of the following methods:
-
         // Method 1:
         // transpose(matrix, n);
         // for (int i = 0; i < n; i++) {
