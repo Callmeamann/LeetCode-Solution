@@ -1,15 +1,17 @@
 class Solution {
 public:
     vector<int> sortArrayByParity(vector<int>& nums) {
-        vector<int> even,odd;
-        for(auto n : nums){
-            if(n%2==0)
-                even.push_back(n);
-            else
-                odd.push_back(n);
-        }
-        even.insert(even.end(),odd.begin(),odd.end());
-        return even;
+        int l=0,r=nums.size()-1;
 
+        while(l<r){
+            if(nums[l]%2==0)    l++;
+            else if(nums[r]%2==1)   r--;
+            else{
+                swap(nums[l],nums[r]);
+                l++;
+                r--;
+            }
+        }
+        return nums;
     }
 };
