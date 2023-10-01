@@ -17,7 +17,7 @@ public:
             ti = i;
             continue;
           }
-            i++;
+          i++;
         }
         revWord(s,ti,n-1);
         return s;
