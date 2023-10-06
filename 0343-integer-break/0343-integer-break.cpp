@@ -1,10 +1,20 @@
 class Solution {
+private:
+    int solve(int n , vector<int> &dp){
+        if(n < 4) return n;
+        if(dp[n] != -1) return dp[n];
+
+        int maxi = INT_MIN;
+        for(int i=2 ; i<n ; ++i){
+            maxi = max(maxi,i*solve(n-i,dp));
+        }
+        return dp[n] = maxi;
+    }
 public:
     int integerBreak(int n) {
-        if(n==2) return 1;
-        else if(n==3) return 2;
-        else if(n%3 == 0) return (int)pow(3,n/3);
-        else if(n%3 == 1) return (int)pow(3,(n-4)/3) * 4;
-        else return (int)pow(3,n/3) * 2;
+        if(n <4)
+            return n-1;
+        vector<int> dp(n+1,-1);
+        return solve(n,dp);
     }
 };
