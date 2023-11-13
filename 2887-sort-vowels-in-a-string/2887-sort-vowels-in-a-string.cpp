@@ -8,6 +8,7 @@ public:
         for(auto &ch : s){
             if(st.find(ch) != st.end()){
                 tmp.push_back(ch);
+                ch = '#';
                 flag = true;
             }
         }
@@ -16,7 +17,7 @@ public:
         sort(tmp.begin(),tmp.end());
         
         for(auto &ch : s){
-            if(st.find(ch) != st.end()){
+            if(ch == '#'){
                 swap(ch,tmp[i]);
                 i++;
             }
