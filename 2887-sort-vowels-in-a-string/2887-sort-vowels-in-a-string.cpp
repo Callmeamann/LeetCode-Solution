@@ -1,12 +1,15 @@
 class Solution {
+    bool isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'o'|| c == 'u'|| c == 'i' 
+            || c == 'A' || c == 'E' || c == 'O'|| c == 'U'|| c == 'I';
+    }
 public:
     string sortVowels(string s) {
         string tmp = "";
         int i=0;
-        set<char> st = {'A','E','I','O','U','a','e','i','o','u'};
         bool flag = false;
         for(auto &ch : s){
-            if(st.find(ch) != st.end()){
+            if(isVowel(ch)){
                 tmp.push_back(ch);
                 ch = '#';
                 flag = true;
